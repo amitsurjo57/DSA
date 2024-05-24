@@ -5,13 +5,7 @@ class Node
 {
 public:
     int data;
-    Node *next;
-
-    Node()
-    {
-        data = 0;
-        next = NULL;
-    }
+    Node *next = NULL;
 
     Node(int data)
     {
@@ -20,60 +14,48 @@ public:
     }
 };
 
-class Linkedlist
+class linkedlist
 {
-    Node *head;
-
 public:
-    Linkedlist() { head = NULL; }
-    void add(int);
-    void printList();
+    Node *head = NULL;
+
+    void add(int data)
+    {
+        Node *newNode = new Node(data);
+        Node *currNode = head;
+
+        if (head == NULL)
+        {
+            head = newNode;
+            return;
+        }
+
+        while (currNode->next != NULL)
+        {
+            currNode = currNode->next;
+        }
+
+        currNode->next = newNode;
+    }
+
+    void printlist()
+    {
+        Node *currNode = head;
+        while (currNode != NULL)
+        {
+            cout << currNode->data << " ";
+            currNode = currNode->next;
+        }
+        cout << endl;
+    }
 };
-
-void Linkedlist::add(int data)
-{
-    Node *newNode = new Node(data);
-
-    if (head == NULL)
-    {
-        head = newNode;
-        return;
-    }
-
-    Node *temp = head;
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
-    }
-
-    temp->next = newNode;
-}
-
-void Linkedlist::printList()
-{
-    Node *temp = head;
-
-    if (head == NULL)
-    {
-        cout << "List empty" << endl;
-        return;
-    }
-
-    while (temp != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-}
 
 int main()
 {
-    Linkedlist list;
-    list.add(12);
-    list.add(13);
-    list.add(14);
-    list.add(15);
-    list.add(16);
-
-    list.printList();
+    linkedlist c;
+    c.add(12);
+    c.add(13);
+    c.add(14);
+    c.add(15);
+    c.printlist();
 }
