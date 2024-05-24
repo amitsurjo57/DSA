@@ -21,6 +21,7 @@ public:
 
     void add(int data);
     void printlist();
+    void search(int);
 };
 
 void linkedlist ::add(int data)
@@ -42,6 +43,28 @@ void linkedlist ::add(int data)
     currNode->next = newNode;
 }
 
+void linkedlist::search(int data){
+    Node *newNode = new Node(data);
+    Node *currNode = head;
+    int pos = 1;
+
+    if(head == NULL){
+        head = newNode;
+        return;
+    }
+
+    while(currNode != NULL){
+        if(currNode->data == data){
+            cout << data << " is present in the list at position " << pos << endl;
+            return;
+        }
+
+        currNode = currNode->next;
+        pos++;
+    }
+    cout << data << " is not present in the list" << endl;
+}
+
 void linkedlist::printlist()
 {
     Node *currNode = head;
@@ -56,9 +79,12 @@ void linkedlist::printlist()
 int main()
 {
     linkedlist c;
+    
     c.add(12);
     c.add(13);
     c.add(14);
     c.add(15);
     c.printlist();
+
+    c.search(16);
 }

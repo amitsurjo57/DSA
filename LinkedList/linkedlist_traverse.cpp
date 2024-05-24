@@ -19,7 +19,7 @@ class linkedlist
 public:
     Node *head = NULL;
 
-    void add(int data);
+    void add(int);
     void printlist();
 };
 
@@ -44,10 +44,12 @@ void linkedlist ::add(int data)
 
 void linkedlist::printlist()
 {
+    int c = 1;
     Node *currNode = head;
+    cout << "All elements of the list are: " << endl;
     while (currNode != NULL)
     {
-        cout << currNode->data << " -> ";
+        cout << "Element no. " << c++ << " = " << currNode->data << endl;
         currNode = currNode->next;
     }
     cout << "NULL" << endl;
