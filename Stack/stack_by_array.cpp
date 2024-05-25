@@ -75,7 +75,6 @@ int main()
     cout << "The top element is: " << s.peek() << endl;
 
     s.pop();
-    
     cout << "The top element is: " << s.peek() << endl;
 
     while (!s.isEmpty())
