@@ -17,6 +17,7 @@ int main()
     int n, m;
     cin >> n >> m;
     int x, y;
+    
     for (int i = 0; i < m; i++)
     {
         cin >> x >> y;
