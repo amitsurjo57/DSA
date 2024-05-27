@@ -12,7 +12,6 @@ public:
     // function of adding edge
     void addEdge(int v, int w);
 
-    
     void DFS(int v);
 };
 
@@ -31,8 +30,12 @@ void Graph::DFS(int v)
     // Recursion for all the vertices adjacent to this vertex
     list<int>::iterator i;
     for (i = adj[v].begin(); i != adj[v].end(); ++i)
+    {
         if (!visited[*i])
+        {
             DFS(*i);
+        }
+    }
 }
 
 int main()
