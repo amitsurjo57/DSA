@@ -21,19 +21,34 @@ void bfs(vector<vector<int>> &adjList, int startNode, vector<bool> &visited)
         q.pop();
         cout << currentNode << " ";
 
-        /*
-            Get all adjacent vertices of the dequeued vertex
-            currentNode If an adjacent has not been visited,
-            then mark it visited and enqueue it
-        */
-        for (int neighbor : adjList[currentNode])
+        
+        vector<int>::iterator it; // declare a iterator
+        
+        // visiting neighbors
+        for (it = adjList[currentNode].begin(); it != adjList[currentNode].end(); it++)
         {
-            if (!visited[neighbor])
+            if (!visited[*it]) // if not visited any neighbor
             {
-                visited[neighbor] = true;
-                q.push(neighbor);
+
+                visited[*it] = true; // then make it visited
+
+                q.push(*it); // and then push it to the queue
+
             }
         }
+
+        // or I can write this like that
+            /*
+
+            for (int neighbor: adjList[currentNode])
+            {
+            if (!visited[neighbor])
+            {
+                        visited[neighbor] = true;
+                        q.push(neighbor);
+            }
+        
+            */
     }
 }
 
