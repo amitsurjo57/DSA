@@ -1,50 +1,65 @@
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
+
 using namespace std;
 
-const int N = 7;
-bool vis[N];
-vector<int> adj[N];
-
-int main()
+void bfs(vector<vector<int>> &adjList, int startNode, vector<bool> &visited)
 {
-    for (int i = 0; i < N; i++)
-    {
-        vis[i] = false;
-    }
-
-    int n, m;
-    cin >> n >> m;
-    int x, y;
-    for (int i = 0; i < m; i++)
-    {
-        cin >> x >> y;
-
-        adj[x].push_back(y);
-        adj[y].push_back(x);
-    }
-
+    // Create a queue for BFS
     queue<int> q;
-    q.push(1);
-    vis[1] = true;
 
+    // Mark the current node as visited and enqueue it
+    visited[startNode] = true;
+    q.push(startNode);
+
+    // Traversing the whole queue
     while (!q.empty())
     {
-        int node = q.front();
-
+        // Dequeue a vertex from queue and print it
+        int currentNode = q.front();
         q.pop();
+        cout << currentNode << " ";
 
-        cout << node << endl;
-
-        vector<int>::iterator it;
-        for (it = adj[node].begin(); it != adj[node].end(); it++)
+        /*
+            Get all adjacent vertices of the dequeued vertex
+            currentNode If an adjacent has not been visited,
+            then mark it visited and enqueue it
+        */
+        for (int neighbor : adjList[currentNode])
         {
-            if (!vis[*it])
+            if (!visited[neighbor])
             {
-                vis[*it] = true;
-                q.push(*it);
+                visited[neighbor] = true;
+                q.push(neighbor);
             }
         }
     }
+}
+
+// Function to add an edge
+void addEdge(vector<vector<int>> &adjList, int u, int v)
+{
+    adjList[u].push_back(v);
+}
+
+int main()
+{
+    // Number of vertices
+    int vertices = 5;
+
+    // Adjacency list representation
+    vector<vector<int>> adjList(vertices);
+
+    // Adding edges
+    addEdge(adjList, 0, 3);
+    addEdge(adjList, 3, 1);
+    addEdge(adjList, 1, 2);
+    addEdge(adjList, 1, 4);
+
+    // Marking all the vertices as not visited
+    vector<bool> visited(vertices, false);
+
+    // BFS traversal
+    bfs(adjList, 0, visited);
 }
