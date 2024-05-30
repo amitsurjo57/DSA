@@ -17,7 +17,7 @@ int main()
     {
         for (int j = i + 1; j < size; j++)
         {
-            if(arr[i]>arr[j])
+            if (arr[i] > arr[j])
             {
                 swap(arr[i], arr[j]);
             }

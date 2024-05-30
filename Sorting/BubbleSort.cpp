@@ -20,7 +20,7 @@ int main()
     {
         for (int j = 0; j < size - term; j++)
         {
-            if(arr[j]>arr[j+1])
+            if (arr[j] > arr[j + 1])
             {
                 swap(arr[j], arr[j + 1]);
             }
@@ -33,5 +33,4 @@ int main()
     {
         cout << arr[i] << " ";
     }
-    
 }
