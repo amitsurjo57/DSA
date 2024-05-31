@@ -27,15 +27,27 @@ void Graph::DFS(int v)
     visited[v] = true;
     cout << v << " ";
 
-    // Recursion for all the vertices adjacent to this vertex
-    list<int>::iterator i;
-    for (i = adj[v].begin(); i != adj[v].end(); ++i)
+    for (int neighbor : adj[v])
     {
-        if (!visited[*i])
+        if (!visited[neighbor])
         {
-            DFS(*i);
+            DFS(neighbor);
         }
     }
+
+
+    // Recursion for all the vertices adjacent to this vertex
+
+    /*
+        list<int>::iterator i;
+        for (i = adj[v].begin(); i != adj[v].end(); ++i)
+        {
+            if (!visited[*i])
+            {
+                DFS(*i);
+            }
+        }
+    */
 }
 
 int main()
