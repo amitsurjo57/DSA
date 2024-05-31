@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-int binarySearch(int arr[], int l, int key)
+int binarySearch(int arr[], int last, int key)
 {
     int si = 0;
-    int ei = l;
+    int ei = last;
     while (si <= ei)
     {
         int mid = (si + ei) / 2;
