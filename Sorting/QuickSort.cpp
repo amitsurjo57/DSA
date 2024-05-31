@@ -35,7 +35,7 @@ int main()
     int size;
     cout << "Enter the size: ";
     cin >> size;
-    int arr[size];
+    int *arr = new int[size];
     for (int i = 0; i < size; i++)
     {
         cout << "Enter element " << i + 1 << ": ";
