@@ -6,8 +6,8 @@ void conquer(int arr[], int si, int mid, int ei)
     int n1 = mid - si + 1;
     int n2 = ei - mid;
 
-    int *left = new int[n1];
-    int *right = new int[n2];
+    int left[n1];
+    int right[n2];
 
     for (int i = 0; i < n1; i++)
     {
@@ -70,7 +70,7 @@ int main()
     int size;
     cout << "Enter the size of array: ";
     cin >> size;
-    int *arr = new int[size];
+    int arr[size];
 
     for (int i = 0; i < size; i++)
     {
