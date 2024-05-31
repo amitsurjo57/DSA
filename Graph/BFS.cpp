@@ -21,22 +21,7 @@ void bfs(vector<vector<int>> &adjList, int startNode, vector<bool> &visited)
         q.pop();
         cout << currentNode << " ";
 
-        //vector<int>::iterator it; // declare a iterator
-
         // visiting neighbors
-        // for (it = adjList[currentNode].begin(); it != adjList[currentNode].end(); it++)
-        // {
-        //     if (!visited[*it]) // if not visited any neighbor
-        //     {
-
-        //         visited[*it] = true; // then make it visited
-
-        //         q.push(*it); // and then push it to the queue
-
-        //     }
-        // }
-
-        // or I can write this like that
 
         for (int neighbor : adjList[currentNode])
         {
@@ -46,6 +31,23 @@ void bfs(vector<vector<int>> &adjList, int startNode, vector<bool> &visited)
                 q.push(neighbor);
             }
         }
+
+        // or I can write this like that
+    /*
+        vector<int>::iterator it; // declare a iterator
+
+        for (it = adjList[currentNode].begin(); it != adjList[currentNode].end(); it++)
+        {
+            if (!visited[*it]) // if not visited any neighbor
+            {
+
+                visited[*it] = true; // then make it visited
+
+                q.push(*it); // and then push it to the queue
+            }
+        }
+    */
+        
     }
 }
 
